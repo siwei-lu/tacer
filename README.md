@@ -1,6 +1,6 @@
 # tacer
 
-A creator of react, using parcel-bundler, Sass, Flow and CSS Module.
+A easier way to create a react app.
 
 ## How to use
 
