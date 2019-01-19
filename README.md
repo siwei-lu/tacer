@@ -7,14 +7,14 @@ A easier way to create a react app.
 ### Install globally
 
 ```sh
-npm install -g create-new
-create-new /path/to/project
+npm install -g tacer
+tacer /path/to/project
 ```
 
 ### Use NPX (require npm >= 5.2.0)
 
 ```sh
-npx create-new /path/to/project
+npx tacer /path/to/project
 ```
 
 ## Release
@@ -23,6 +23,6 @@ npx create-new /path/to/project
 
 Feats:
 
-- create project with tempate
+- create project with template
 
 ## Have Fun !
