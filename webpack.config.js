@@ -4,10 +4,11 @@ const mode = process.env.MODE || 'development'
 module.exports = {
   mode,
   target: 'node',
-  entry: './index.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js'
+    filename: 'index.js',
+    libraryTarget: 'commonjs',
   },
   node: {
     __dirname: true,

@@ -2,7 +2,8 @@
   "name": "react-new",
   "version": "0.0.1",
   "description": "A easier way to create a react app.",
-  "main": "dist/git index.js",
+  "main": "index.js",
+  "bin": "index.js",
   "scripts": {
     "start": "webpack && node dist",
     "build": "MODE=production webpack",

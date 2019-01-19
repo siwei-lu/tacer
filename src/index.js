@@ -2,10 +2,10 @@
 import os from 'os'
 import fs from 'fs-promise'
 import commander from 'commander'
-import Template from '../models/Template'
-import create from './create'
-import init from './init'
-import pkg from '../../package.json'
+import Template from './models/Template'
+import create from './modules/create'
+import init from './modules/init'
+import pkg from '../package.json'
 
 export default function run() {
   commander

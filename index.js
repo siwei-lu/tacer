@@ -1,3 +1,3 @@
-// @flow
-import run from './src/modules/run'
+#!/usr/bin/env node
+const run = require('./dist').default
 run()
