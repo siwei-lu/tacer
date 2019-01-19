@@ -19,7 +19,7 @@
     "starter kits"
   ],
   "author": "Idan Loo <im@siwei.lu>",
-  "license": "${license}",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/IdanLoo/react-new/issues"
   },
