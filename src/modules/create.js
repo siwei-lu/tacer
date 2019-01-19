@@ -57,8 +57,6 @@ export const _handleDir = async (
   await Promise.all(promises)
 }
 
-export default {
-  async create(tpl: Template, path: string) {
-    await _handleDir('', path, tpl)
-  },
+export default async function create(tpl: Template, path: string) {
+  await _handleDir('', path, tpl)
 }

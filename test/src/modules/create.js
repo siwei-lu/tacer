@@ -1,10 +1,8 @@
-import chai, { expect } from 'chai'
+import { expect } from 'chai'
 import fs from 'fs-promise'
 import { execSync } from 'child_process'
-import creator, { _isDir, _checkPath, _handleDir, _handleFile } from '../../../src/modules/creator'
+import create, { _isDir, _checkPath, _handleDir, _handleFile } from '../../../src/modules/create'
 import Template from '../../../src/models/Template'
-
-chai.should()
 
 const tpl = new Template({
   name: 'test',
@@ -32,7 +30,7 @@ describe('Creator module', () => {
   it('should create a project via the template', async () => {
     const path = './.test-create'
 
-    await creator.create(tpl, path)
+    await create(tpl, path)
     expect(await _isDir(path)).true
     expect(await _isDir(`${path}/src`)).true
     expect(await fs.exists(`${path}/package.json`)).true

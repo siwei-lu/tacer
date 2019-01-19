@@ -1,5 +1,6 @@
 // @flow
 import fs from 'fs-promise'
+import line from '../modules/line'
 
 export default class Template {
   $key: string
@@ -9,8 +10,9 @@ export default class Template {
   description: string
   repository: string
   author: string
+  license: string
 
-  constructor({...props}: Template) {
+  constructor({...props}: Template = {}) {
     Object.assign(this, props)
   }
 
@@ -26,5 +28,17 @@ export default class Template {
     }
 
     return this._replaced(content)
+  }
+
+  static async fromStdin() {
+    const tpl = new Template()
+
+    tpl.name = await line('package name: ')
+    tpl.description = await line('description: ')
+    tpl.repository = await line('git repository: ')
+    tpl.author = await line('author: ')
+    tpl.license = await line('license: ')
+
+    return tpl
   }
 }

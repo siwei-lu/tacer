@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack && node dist",
     "build": "MODE=production webpack",
-    "test": "BABEL_ENV=test mocha --require @babel/register test/**/*.js"
+    "test": "BABEL_ENV=test mocha --require @babel/register test/index.js test/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
     "starter kits"
   ],
   "author": "Idan Loo <im@siwei.lu>",
-  "license": "MIT",
+  "license": "${license}",
   "bugs": {
     "url": "https://github.com/IdanLoo/react-new/issues"
   },

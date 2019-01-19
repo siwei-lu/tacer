@@ -1,3 +1,3 @@
 // @flow
-
-console.log(123)
+import run from './src/modules/run'
+run()

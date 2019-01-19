@@ -1,7 +1,4 @@
-import chai from 'chai'
 import Template from '../../../src/models/Template'
-
-chai.should()
 
 const path = './template/package.json.tpl'
 const tpl = new Template({
