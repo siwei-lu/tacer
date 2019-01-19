@@ -17,4 +17,12 @@ create-new /path/to/project
 npx create-new /path/to/project
 ```
 
+## Release
+
+### v0.0.1
+
+Feats:
+
+- create project with tempate
+
 ## Have Fun !
