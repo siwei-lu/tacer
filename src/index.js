@@ -5,11 +5,10 @@ import commander from 'commander'
 import Template from './models/Template'
 import create from './modules/create'
 import init from './modules/init'
-import pkg from '../package.json'
 
 export default function run() {
   commander
-    .version(pkg.version)
+    .version('0.0.2')
     .arguments('<path>')
     .action(async (path: string) => {
       const tpl = await Template.fromStdin()

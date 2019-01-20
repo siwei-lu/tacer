@@ -19,13 +19,19 @@ npx tacer /path/to/project
 
 ## Release
 
+### v0.1.0
+
+#### Chores: 
+
+- use rollup for bundling instead of webpack
+
 ### v0.0.2
 
-Feats:
+#### Feats:
 
 - create project with template
 
-Fixes:
+#### Fixes:
 
 - error usage doc
 
