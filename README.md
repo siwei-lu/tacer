@@ -19,7 +19,11 @@ npx tacer /path/to/project
 
 ## Release
 
-### v0.1.0
+### v0.1.0 (developing)
+
+#### Feats:
+
+- default value for inputing
 
 #### Chores: 
 

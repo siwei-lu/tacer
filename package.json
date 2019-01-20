@@ -1,13 +1,13 @@
 {
   "name": "tacer",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "A easier way to create a react app.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "bin": "index.js",
   "scripts": {
-    "start": "npm run build && node dist",
+    "start": "npm run build && node index.js",
     "build": "rollup -c",
-    "test": "mocha --require @babel/register test/index.js test/**/*.js"
+    "test": "mocha --recursive -r @babel/register test"
   },
   "repository": {
     "type": "git",

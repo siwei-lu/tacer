@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import fs from 'fs-promise'
 import { execSync } from 'child_process'
-import create, { _isDir, _checkPath, _handleDir, _handleFile } from '../../../src/modules/create'
+import create, { _isDir, _checkPath, _handleDir, _handleFile } from '../../../src/utils/create'
 import Template from '../../../src/models/Template'
 
 const tpl = new Template({
