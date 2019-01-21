@@ -40,6 +40,7 @@ tacer node /path/to/project
 
 #### Chores: 
 
+- export some functions
 - use rollup for bundling instead of webpack
 
 ### v0.0.2

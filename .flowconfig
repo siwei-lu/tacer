@@ -1,6 +1,7 @@
 [ignore]
 .*/templates/.*
 .*/test/.*
+dist/
 
 [include]
 
