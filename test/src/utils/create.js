@@ -5,13 +5,14 @@ import create, { _isDir, _checkPath, _handleDir, _handleFile } from '../../../sr
 import Template from '../../../src/models/Template'
 
 const tpl = new Template({
+  template: 'react',
   name: 'test',
   description: 'this is a test description',
   author: 'Idan Loo <im@siwei.lu>',
   repository: 'https://github.com/IdanLoo/ReactCreator.git'
 })
 
-describe('Creator module', () => {
+describe('Creator util', () => {
   it('should return true if the path is a directory', async () => {
     expect(await _isDir('.')).true
     expect(await _isDir('./README.md')).false

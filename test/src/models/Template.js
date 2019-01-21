@@ -1,6 +1,6 @@
 import Template from '../../../src/models/Template'
 
-const path = './template/package.json.tpl'
+const path = './templates/react/package.json.tpl'
 const tpl = new Template({
   name: 'test',
   description: 'this is a test description',

@@ -19,8 +19,9 @@ describe('Line module', () => {
     input.push('22\r\n')
     input.push(null)
 
-    const name = await line("What's your name: ", { input, output, preset: 'Idan Loo' })
-    const age = await line("How old are you: ", { input, output, preset: '22' })
+    const option = { input, output }
+    const name = await line("What's your name: ", 'Idan Loo', option)
+    const age = await line("How old are you: ", '22', option)
 
     out.length.should.eq(2)
     out[0].should.eq("What's your name: (Idan Loo) ")

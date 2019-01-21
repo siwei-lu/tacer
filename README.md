@@ -1,6 +1,6 @@
 # tacer
 
-A easier way to create a react app.
+A easier way to create a Javascript project.
 
 ## How to use
 

@@ -2,17 +2,19 @@
 import { createInterface } from 'readline'
 import type { Readable, Writable } from 'stream';
 
-type Option = {
-  input?: Readable,
-  output?: Writable,
-  preset?: string,
+const _defaultOption = {
+  input: process.stdin,
+  output: process.stdout,
 }
+
+type Option = typeof _defaultOption
 
 export default async function line(
   question: string,
-  { input = process.stdin, output = process.stdout, preset = '' }: Option = {}
+  preset: string = '',
+  option: Option = _defaultOption,
 ): Promise<string> { 
-  const rl = createInterface({ input, output })
+  const rl = createInterface(option)
 
   if (preset) {
     question += `(${preset}) `

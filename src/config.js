@@ -1,4 +1,5 @@
 // @flow
 import path from 'path'
 
-export const templatePath = path.resolve(__dirname, '../template')
+export const templatePath = (template: string) =>
+  path.resolve(__dirname, `../templates/${template}`)

@@ -14,6 +14,7 @@ export default class Template implements ITemplate {
   $key: string
   $value: string
 
+  template: string
   name: string
   description: string
   repository: string
@@ -38,14 +39,14 @@ export default class Template implements ITemplate {
     return this._replaced(content)
   }
 
-  static async fromStdin(preset: ITemplate = {}) {
-    const tpl = new Template()
+  static async fromStdin(template: string, preset: ITemplate = {}) {
+    const tpl = new Template({ template })
 
-    tpl.name = await line('package name: ', { preset: preset.name })
+    tpl.name = await line('package name: ', preset.name)
     tpl.description = await line('description: ')
     tpl.repository = await line('git repository: ')
     tpl.author = await line('author: ')
-    tpl.license = await line('license: ', { preset: 'MIT' })
+    tpl.license = await line('license: ', 'MIT')
 
     return tpl
   }

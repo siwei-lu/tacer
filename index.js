@@ -1,3 +1,3 @@
 #!/usr/bin/env node
-const main = require('./dist').default
+const main = require('./dist')
 main()

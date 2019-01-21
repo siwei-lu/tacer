@@ -27,7 +27,7 @@ export const _handleFile = async (
   tpl: Template,
 ) => {
   dist = _dist(dist)
-  const path = config.templatePath + pathname
+  const path = config.templatePath(tpl.template) + pathname
 
   const content = await tpl.render(path)
   await fs.writeFile(dist, content, 'utf8')
@@ -38,12 +38,12 @@ export const _handleDir = async (
   dist: string,
   tpl: Template,
 ) => {
-  const path = config.templatePath + pathname
+  const path = config.templatePath(tpl.template) + pathname
   const subnames = await fs.readdir(path)
 
   const promises = subnames.map(async name => {
     const subname = `${pathname}/${name}`
-    const subpath = config.templatePath + subname
+    const subpath = config.templatePath(tpl.template) + subname
     const subdist = `${dist}/${name}`
 
     if (await _isDir(subpath)) {
