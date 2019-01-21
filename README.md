@@ -38,7 +38,6 @@ tacer node /path/to/project
 - multi-template support
 - node template
 
-
 #### Chores: 
 
 - use rollup for bundling instead of webpack
