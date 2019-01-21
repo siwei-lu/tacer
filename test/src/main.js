@@ -1,4 +1,4 @@
-import { _dirname } from '../../src/main'
+import { _dirname } from '../../src/utils/command'
 
 describe('Main', () => {
   it('should return the last name of a path', () => {

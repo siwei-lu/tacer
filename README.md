@@ -8,13 +8,24 @@ A easier way to create a Javascript project.
 
 ```sh
 npm install -g tacer
-tacer /path/to/project
+tacer react /path/to/project
 ```
 
 ### Use NPX (require npm >= 5.2.0)
 
 ```sh
-npx tacer /path/to/project
+npx tacer react /path/to/project
+```
+
+## Template
+
+React and Node template are supported now.
+
+```sh
+# create a react project
+tacer react /path/to/project
+# create a node project
+tacer node /path/to/project
 ```
 
 ## Release
@@ -24,6 +35,9 @@ npx tacer /path/to/project
 #### Feats:
 
 - default value for inputing
+- multi-template support
+- node template
+
 
 #### Chores: 
 
