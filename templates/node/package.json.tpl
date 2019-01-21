@@ -1,5 +1,5 @@
 {
-  "name": "node",
+  "name": "${name}",
   "version": "0.0.1",
   "description": "${description}",
   "main": "dist/index.js",
