@@ -30,6 +30,12 @@ tacer node /path/to/project
 
 ## Release
 
+### v0.1.1
+
+#### Fixes:
+
+- Cannot find module '@babel/runtime/regenerator'
+
 ### v0.1.0
 
 #### Feats:

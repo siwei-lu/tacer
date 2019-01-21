@@ -5,7 +5,7 @@
   "main": "index.js",
   "bin": ".bin/tacer.js",
   "scripts": {
-    "start": "npm run build && node index.js",
+    "start": "npm run build && node .bin/tacer.js",
     "build": "rollup -c",
     "test": "mocha --recursive -r @babel/register test",
     "flow": "flow-copy-source -v src dist"
@@ -33,16 +33,18 @@
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-flow": "^7.0.0",
     "@babel/register": "^7.0.0",
-    "@babel/runtime": "^7.2.0",
     "chai": "^4.2.0",
     "flow-copy-source": "^2.0.2",
     "mocha": "^5.2.0",
     "rollup": "^1.1.1",
     "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-terser": "^4.0.2"
   },
   "dependencies": {
     "commander": "^2.19.0",
-    "fs-promise": "^2.0.3"
+    "fs-promise": "^2.0.3",
+    "@babel/runtime": "^7.2.0"
   }
 }
