@@ -30,7 +30,7 @@ tacer node /path/to/project
 
 ## Release
 
-### v0.1.0 (developing)
+### v0.1.0
 
 #### Feats:
 
