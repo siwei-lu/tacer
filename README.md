@@ -69,4 +69,4 @@ tacer node /path/to/project
 
 - error usage doc
 
-## Have Fun !
+## Have Fun!
