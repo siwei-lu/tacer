@@ -30,6 +30,16 @@ tacer node /path/to/project
 
 ## Release
 
+### v0.2.0 (developing)
+
+#### Feats:
+
+- wx-component template
+
+#### Fixes:
+
+- `--version` 显示版本不正确
+
 ### v0.1.1
 
 #### Fixes:
