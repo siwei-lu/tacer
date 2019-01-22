@@ -5,6 +5,7 @@ import commander from 'commander'
 import Template from '../models/Template'
 import create from './create'
 import init from './init'
+import { version } from '../config'
 
 export const _dirname = (path: string) => path.split('/').pop()
 
@@ -17,7 +18,7 @@ export const _create = async (template: string, path: string) => {
 
 export default function command() {
   commander
-    .version('0.0.2')
+    .version(version())
     .arguments('<template> <path>')
     .action(_create)
     .parse(process.argv)
