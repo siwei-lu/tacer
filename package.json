@@ -2,8 +2,9 @@
   "name": "tacer",
   "version": "0.3.0",
   "description": "A easier way to create a Javascript project.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "bin": ".bin/tacer.js",
+  "types": "typings",
   "scripts": {
     "start": "npm run build && node .bin/tacer.js",
     "build": "rollup -c",
@@ -30,10 +31,9 @@
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
     "rollup": "^1.1.1",
-    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-auto-external": "^2.0.0",
     "rollup-plugin-terser": "^4.0.2",
-    "rollup-plugin-typescript": "^1.0.0",
-    "tslib": "^1.9.3",
+    "rollup-plugin-typescript2": "^0.19.3",
     "typescript": "^3.3.3333"
   },
   "dependencies": {

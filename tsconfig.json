@@ -2,8 +2,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "target": "es2015",
-    "module": "none",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "declaration": true
   },
   "exclude": [
     "node_modules"
