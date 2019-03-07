@@ -1,6 +1,4 @@
-// @flow
 import { createInterface } from 'readline'
-import type { Readable, Writable } from 'stream';
 
 const _defaultOption = {
   input: process.stdin,
@@ -20,7 +18,7 @@ export default async function line(
     question += `(${preset}) `
   }
 
-  const answer = await new Promise(
+  const answer: string = await new Promise(
     (res, rej) => rl.question(question, ans => {
       rl.close()
       res(ans)

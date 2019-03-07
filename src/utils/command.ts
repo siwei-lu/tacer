@@ -1,17 +1,17 @@
-// @flow
-import os from 'os'
-import fs from 'fs-promise'
-import commander from 'commander'
+import * as commander from 'commander'
 import Template from '../models/Template'
 import create from './create'
 import init from './init'
 import { version } from '../config'
 
-export const _dirname = (path: string) => path.split('/').pop()
+export function _dirname(path: string) {
+  return path.split('/').pop()
+}
 
-export const _create = async (template: string, path: string) => {
+export async function _create(template: string, path: string) {
   const name = _dirname(path)
   const tpl = await Template.fromStdin(template, { name })
+
   await create(tpl, path)
   await init(path)
 }

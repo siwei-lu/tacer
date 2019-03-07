@@ -1,26 +1,21 @@
-import babel from 'rollup-plugin-babel'
+import typescript from 'rollup-plugin-typescript'
 import { terser } from 'rollup-plugin-terser'
 
 export default {
-  input: 'index.js',
+  input: 'index.ts',
   output: {
     file: 'dist/index.js',
     format: 'cjs',
   },
   plugins: [
-    babel({
-      babelrc: false,
-      runtimeHelpers: true,
-      exclude: 'node_modules/**',
-      presets: [
-        ["@babel/preset-env", { modules: false }],
-        "@babel/preset-flow"
-      ],
-      plugins: [
-        "@babel/plugin-transform-runtime",
-        "@babel/plugin-transform-flow-strip-types",
-      ]
-    }),
+    typescript(),
     terser(),
+  ],
+  external: [
+    'path',
+    'fs',
+    'child_process',
+    'readline',
+    'commander',
   ]
 }

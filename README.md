@@ -30,6 +30,12 @@ tacer node /path/to/project
 
 ## Release
 
+### v0.3.0 (developing)
+
+#### Feats:
+
+- 用 Typescript 重写
+
 ### v0.2.0 (developing)
 
 #### Feats:

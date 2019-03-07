@@ -1,5 +1,4 @@
-// @flow
-import fs from 'fs-promise'
+import { promises as fs } from 'fs'
 import line from '../utils/line'
 
 export interface ITemplate {
@@ -8,6 +7,7 @@ export interface ITemplate {
   repository?: string,
   author?: string,
   license?: string,
+  template?: string
 }
 
 export default class Template implements ITemplate {
