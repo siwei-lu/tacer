@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import fs from 'fs-promise'
+import { promises as fs, existsSync } from 'fs'
 import { execSync } from 'child_process'
 import create, { _isDir, _checkPath, _handleDir, _handleFile } from '../../../src/utils/create'
 import Template from '../../../src/models/Template'
@@ -21,7 +21,7 @@ describe('Creator util', () => {
   it('should make a new directory if the path is not exists', async () => {
     const tmpPath = './.tmp'
 
-    expect(await fs.exists(tmpPath)).false
+    expect(existsSync(tmpPath)).false
     await _checkPath(tmpPath)
     expect(await _isDir(tmpPath)).true
 
@@ -34,7 +34,7 @@ describe('Creator util', () => {
     await create(tpl, path)
     expect(await _isDir(path)).true
     expect(await _isDir(`${path}/src`)).true
-    expect(await fs.exists(`${path}/package.json`)).true
+    expect(existsSync(`${path}/package.json`)).true
 
     execSync(`rm -rf ${path}`)
   })

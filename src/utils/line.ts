@@ -1,11 +1,15 @@
 import { createInterface } from 'readline'
+import { Readable, Writable } from 'stream'
+
+type Option = {
+  input: Readable,
+  output: Writable,
+}
 
 const _defaultOption = {
   input: process.stdin,
   output: process.stdout,
 }
-
-type Option = typeof _defaultOption
 
 export default async function line(
   question: string,

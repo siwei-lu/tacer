@@ -2,10 +2,8 @@ import { promises as fs, existsSync } from 'fs'
 import * as config from '../config'
 import Template from '../models/Template'
 
-export async function _isDir(path: string): Promise<boolean> {
-  const stat = await fs.stat(path)
-  return stat.isDirectory()
-}
+export const _isDir = (path: string) =>
+  fs.stat(path).then(s => s.isDirectory())
 
 export async function _checkPath(path: string) {
   if (!existsSync(path)) {
@@ -13,7 +11,7 @@ export async function _checkPath(path: string) {
   }
 }
 
-export function _dist(path: string) {
+export const _dist = (path: string) => {
   const result = path.match(/(.*)\.tpl$/)
   return result ? result[1]: path
 }

@@ -8,7 +8,7 @@
   "scripts": {
     "start": "npm run build && node .bin/tacer.js",
     "build": "rollup -c",
-    "test": "mocha --recursive -r @babel/register test",
+    "test": "mocha --recursive -r ts-node/register test/**/*.ts",
     "flow": "flow-copy-source -v src dist"
   },
   "repository": {
@@ -28,12 +28,15 @@
   },
   "homepage": "https://github.com/IdanLoo/tacer#readme",
   "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
     "rollup": "^1.1.1",
     "rollup-plugin-auto-external": "^2.0.0",
     "rollup-plugin-terser": "^4.0.2",
     "rollup-plugin-typescript2": "^0.19.3",
+    "ts-node": "^8.0.3",
     "typescript": "^3.3.3333"
   },
   "dependencies": {
