@@ -29,6 +29,7 @@
   "homepage": "https://github.com/IdanLoo/tacer#readme",
   "devDependencies": {
     "@types/chai": "^4.1.7",
+    "@types/ejs": "^2.6.3",
     "@types/mocha": "^5.2.6",
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
@@ -40,6 +41,8 @@
     "typescript": "^3.3.3333"
   },
   "dependencies": {
-    "commander": "^2.19.0"
+    "commander": "^2.19.0",
+    "compressing": "^1.4.0",
+    "ejs": "^2.6.1"
   }
 }

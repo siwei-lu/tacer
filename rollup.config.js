@@ -11,6 +11,6 @@ export default {
   plugins: [
     autoExternal(),
     typescript(),
-    // terser(),
+    terser(),
   ],
 }

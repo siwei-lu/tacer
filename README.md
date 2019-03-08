@@ -34,7 +34,9 @@ tacer node /path/to/project
 
 #### Feats:
 
-- 用 Typescript 重写
+- rewrite by Typescript
+
+- add user template
 
 ### v0.2.0 (developing)
 
@@ -44,7 +46,7 @@ tacer node /path/to/project
 
 #### Fixes:
 
-- `--version` 显示版本不正确
+- `--version`
 
 ### v0.1.1
 

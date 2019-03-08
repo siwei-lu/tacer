@@ -1,25 +1,17 @@
 import * as commander from 'commander'
-import Template from '../models/Template'
 import create from './create'
-import init from './init'
-import { version } from '../config'
-
-export function _dirname(path: string) {
-  return path.split('/').pop()
-}
-
-export async function _create(template: string, path: string) {
-  const name = _dirname(path)
-  const tpl = await Template.fromStdin(template, { name })
-
-  await create(tpl, path)
-  await init(path)
-}
+import add from './add'
 
 export default function command() {
   commander
-    .version(version())
     .arguments('<template> <path>')
-    .action(_create)
+    .action(create)
+
+  commander
+    .command('add <template-name>')
+    .action(add)
+  
+  commander
+    .version('0.3.0')
     .parse(process.argv)
 }

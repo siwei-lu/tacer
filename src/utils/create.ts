@@ -1,57 +1,56 @@
-import { promises as fs, existsSync } from 'fs'
-import * as config from '../config'
+import { promises as fs } from 'fs'
 import Template from '../models/Template'
+import { templateDir } from './workdir'
+import { isDir, checkPath } from './common'
 
-export const _isDir = (path: string) =>
-  fs.stat(path).then(s => s.isDirectory())
-
-export async function _checkPath(path: string) {
-  if (!existsSync(path)) {
-    await fs.mkdir(path)
-  }
+export const _destname = (path: string) => {
+  const result = path.match(/(.*)\.(tpl|ejs)$/)
+  return result ? result[1] : path
 }
 
-export const _dist = (path: string) => {
-  const result = path.match(/(.*)\.tpl$/)
-  return result ? result[1]: path
-}
+export const _dirname = (path: string) => path.split('/').pop()
 
 export async function _handleFile(
   pathname: string,
-  dist: string,
+  destname: string,
   tpl: Template,
 ) {
-  dist = _dist(dist)
-  const path = config.templatePath(tpl.template) + pathname
+  destname = _destname(destname)
+  const path = await templateDir(tpl.template) + pathname
 
   const content = await tpl.render(path)
-  await fs.writeFile(dist, content, 'utf8')
+  await fs.writeFile(destname, content, 'utf8')
 }
 
 export async function _handleDir(
   pathname: string,
-  dist: string,
+  dest: string,
   tpl: Template,
 ) {
-  const path = config.templatePath(tpl.template) + pathname
-  const subname = await fs.readdir(path)
+  const path = await templateDir(tpl.template) + pathname
+  const subnames = await fs.readdir(path)
 
-  const promises = subname.map(async name => {
+  const promises = subnames.map(async name => {
     const subname = `${pathname}/${name}`
-    const subpath = config.templatePath(tpl.template) + subname
-    const subdist = `${dist}/${name}`
+    const subpath = await templateDir(tpl.template) + subname
+    const subdest = `${dest}/${name}`
 
-    if (await _isDir(subpath)) {
-      return _handleDir(subname, subdist, tpl)
+    console.log(subname)
+
+    if (await isDir(subpath)) {
+      return _handleDir(subname, subdest, tpl)
     }
 
-    return _handleFile(subname, subdist, tpl)
+    return _handleFile(subname, subdest, tpl)
   })
 
-  await _checkPath(dist)
+  await checkPath(dest)
   await Promise.all(promises)
 }
 
-export default async function create(tpl: Template, path: string) {
+export default async function create(template: string, path: string) {
+  const name = _dirname(path)
+  const tpl = await Template.fromStdin(template, { name })
+
   await _handleDir('', path, tpl)
 }
