@@ -6,3 +6,4 @@ test/
 package-lock.json
 webpack.config.js
 yarn.lock
+.rpt2_cache
