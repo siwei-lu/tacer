@@ -63,7 +63,7 @@ Tacer provided some paramters to the template.
 
 ## Release
 
-### v0.3.1 (developing)
+### v0.3.1
 
 #### Chores:
 
