@@ -17,7 +17,7 @@ describe('Creator util', () => {
   it('should create a project via the template', async () => {
     const path = './.test-create'
 
-    await create(tpl, path)
+    await create('react', path)
     expect(await isDir(path)).true
     expect(await isDir(`${path}/src`)).true
     expect(existsSync(`${path}/package.json`)).true

@@ -29,26 +29,12 @@ export default class Template implements ITemplate {
     Object.assign(this, props)
   }
 
-  _renderTpl(content: string): string {
+  renderTpl(content: string): string {
     return content.replace(/\$\{(.*)\}/g, (_, key: string) => this[key] || '')
   }
 
-  _renderEjs(content: string): string {
+  renderEjs(content: string): string {
     return ejs.render(content, this)
-  }
-
-  async render(filePath: string): Promise<string> {
-    const content: string = await fs.readFile(filePath, 'utf8')
-
-    if (filePath.match(/\.ejs$/)) {
-      return this._renderEjs(content)
-    }
-
-    if (filePath.match(/\.tpl$/)) {
-      return this._renderTpl(content)
-    }
-
-    return content
   }
 
   static async fromStdin(template: string, preset: ITemplate = {}) {

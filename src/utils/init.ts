@@ -1,7 +1,5 @@
 import { execSync } from 'child_process'
 
-export default function init(path: string) {
-  console.log('Downloading dependencies...')
-  execSync('npm install', { cwd: path })
+export default function init() {
   console.log('Have fun!')
 }
