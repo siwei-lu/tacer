@@ -1,6 +1,6 @@
 {
   "name": "tacer",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A easier way to create a Javascript project.",
   "main": "dist/index.js",
   "bin": ".bin/tacer.js",
