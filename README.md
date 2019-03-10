@@ -63,6 +63,12 @@ Tacer provided some paramters to the template.
 
 ## Release
 
+### v0.3.3
+
+#### Fixes:
+
+- uncompress error
+
 ### v0.3.1
 
 #### Chores:

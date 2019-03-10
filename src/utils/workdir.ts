@@ -1,5 +1,4 @@
 import { homedir, tmpdir } from 'os'
-import { existsSync } from 'fs'
 import { zip } from 'compressing'
 import { checkPath } from './common'
 
@@ -29,7 +28,7 @@ export async function templateDir(name: string) {
   const tmpdir = await tmpDir()
   const dest = `${tmpdir}/${name}`
 
-  await zip.uncompress(target, tmpdir)
+  await zip.uncompress(target, dest)
   return dest
 }
 
