@@ -1,6 +1,6 @@
 {
   "name": "tacer",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A easier way to create a Javascript project.",
   "bin": {
     "tacer": ".bin/run.js"
