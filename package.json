@@ -9,7 +9,8 @@
   "types": "./types",
   "scripts": {
     "start": "npm run build && node .bin/run",
-    "build": "tacer-script build"
+    "build": "tacer-script build",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
