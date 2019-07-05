@@ -1723,10 +1723,10 @@ tacer-seed@^0.1.0:
   dependencies:
     handlebars "^4.1.2"
 
-tacer-template-lib@^0.2.0:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/tacer-template-lib/-/tacer-template-lib-0.2.1.tgz#55d4d72b94bf6722c1f8e27e63954a16173281af"
-  integrity sha512-J6QvBwA/tmHPeH2wxFphm8Gj46lf2HQBAqqLfEVmHXdApEP4phB34ElKzfq012oaHtsuG9XGtj1RhfBSAITW8Q==
+tacer-template-bin@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/tacer-template-bin/-/tacer-template-bin-0.1.0.tgz#39ee0719e9d3c4554e03d12f376fae489bb1f719"
+  integrity sha512-O41yqIxuUChKEdVU/3e73URHsYT2z5EctUfkYX9SR2582z3KI/09Aa8Sj2FPnxHUpcjzCJbAMD1q9lbFofjhfQ==
   dependencies:
     mocha "^6.1.4"
     rollup "^1.16.4"
