@@ -2,7 +2,9 @@
   "name": "tacer",
   "version": "0.4.0",
   "description": "A easier way to create a Javascript project.",
-  "bin": ".bin/run.js",
+  "bin": {
+    "tacer": ".bin/run.js"
+  },
   "main": "./dist/index.js",
   "types": "./types",
   "scripts": {
