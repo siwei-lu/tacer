@@ -1,9 +1,4 @@
 node_modules/
 test/
-.babelrc
-.flowconfig
-.gitignore
-package-lock.json
-webpack.config.js
-yarn.lock
-.rpt2_cache
+src/
+*.lock
