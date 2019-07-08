@@ -11,7 +11,7 @@
     "start": "npm run build && node .bin/run.js",
     "build": "tacer-script build",
     "test": "tacer-script test",
-    "prepublishOnly": "npm run build"
+    "preversion": "npm run build"
   },
   "repository": {
     "type": "git",
