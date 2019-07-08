@@ -8,8 +8,9 @@
   "main": "./dist/index.js",
   "types": "./types",
   "scripts": {
-    "start": "npm run build && node .bin/run",
+    "start": "npm run build && node .bin/run.js",
     "build": "tacer-script build",
+    "test": "tacer-script test",
     "prepublishOnly": "npm run build"
   },
   "repository": {
@@ -26,9 +27,15 @@
   "license": "MIT",
   "homepage": "https://github.com/IdanLoo/tacer#readme",
   "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.7",
+    "@types/sinon": "^7.0.13",
+    "chai": "^4.2.0",
+    "sinon": "^7.3.2",
     "tacer-template-bin": "^0.1.0"
   },
   "dependencies": {
+    "commander": "^2.20.0",
     "readline": "^1.3.0"
   }
 }
