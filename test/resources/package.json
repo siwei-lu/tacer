@@ -1,0 +1,17 @@
+{
+  "name": "0.29540465097184465",
+  "version": "0.5.1",
+  "description": "0.7433149050996364",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IdanLoo/tacer"
+  },
+  "keywords": [
+    "Javascript",
+    "template",
+    "starter kits",
+    "scaffold"
+  ],
+  "author": "Idan Loo <im@siwei.lu>",
+  "license": "0.9634667651043418"
+}
