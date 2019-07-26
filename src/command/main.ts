@@ -1,6 +1,6 @@
 import unzip from '~/utils/unzip'
 import Package from '~/models/Package'
-import { sep, join } from 'path'
+import { sep, resolve } from 'path'
 import Template from '~/models/Template'
 import { remove } from 'fs-extra'
 
@@ -22,6 +22,6 @@ export default async function main(tpl: string, dest = cwd) {
     license: 'MIT',
   })
 
-  const pkgPath = join(dest, 'package.json')
+  const pkgPath = resolve(dest, 'package.json')
   await pkg.writeTo(pkgPath)
 }
