@@ -53,11 +53,15 @@ export default class Package implements IPackage {
 
   async writeTo(pkgPath: string) {
     const pkg = require(pkgPath)
-    const { template, ...props } = this
+    const { template, repository, ...props } = this
 
     setValue(pkg, `devDependencies.${template.name}`, template.tag)
-    Object.assign(pkg, props)
+    pkg.repository = {
+      type: 'git',
+      url: repository,
+    }
 
+    Object.assign(pkg, props)
     const newContent = JSON.stringify(pkg, null, 2)
     await writeFile(pkgPath, newContent)
   }
