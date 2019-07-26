@@ -1,7 +1,10 @@
+import setValue from 'set-value'
 import prompt from '~/utils/prompt'
-import { readFile, writeFile } from 'fs-extra'
+import { writeFile } from 'fs-extra'
+import Template from './Template'
 
 export interface IPackage {
+  template?: Template
   name?: string
   version?: string
   description?: string
@@ -12,6 +15,7 @@ export interface IPackage {
 }
 
 export default class Package implements IPackage {
+  template: Template
   name: string
   version: string
   description: string
@@ -24,18 +28,19 @@ export default class Package implements IPackage {
     Object.assign(this, props)
   }
 
-  static async fromStdin(preset: IPackage = {}) {
+  static async fromStdin(template: Template, preset: IPackage = {}) {
     const name = await prompt('package name', preset.name)
     const version = await prompt('version', preset.version)
     const description = await prompt('description', preset.description)
     const repository = await prompt('git repository', preset.repository)
-    const keywords = await prompt('keywords').then(result =>
-      result.split(/\s+/)
+    const keywords = await prompt('keywords').then(
+      result => result && result.split(/\s+/)
     )
     const author = await prompt('author', preset.author)
     const license = await prompt('license', preset.license)
 
     return new Package({
+      template,
       name,
       version,
       description,
@@ -46,12 +51,13 @@ export default class Package implements IPackage {
     })
   }
 
-  // TODO: inject the template as devDependencies automatically
   async writeTo(pkgPath: string) {
-    const content = await readFile(pkgPath, 'utf8')
-    const pkg = JSON.parse(content)
+    const pkg = require(pkgPath)
+    const { template, ...props } = this
 
-    Object.assign(pkg, this)
+    setValue(pkg, `devDependencies.${template.name}`, template.tag)
+    Object.assign(pkg, props)
+
     const newContent = JSON.stringify(pkg, null, 2)
     await writeFile(pkgPath, newContent)
   }
