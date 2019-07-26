@@ -33,8 +33,8 @@ export default class Package implements IPackage {
     const version = await prompt('version', preset.version)
     const description = await prompt('description', preset.description)
     const repository = await prompt('git repository', preset.repository)
-    const keywords = await prompt('keywords').then(
-      result => result && result.split(/\s+/)
+    const keywords = await prompt('keywords').then(result =>
+      result ? result.split(/\s+/) : []
     )
     const author = await prompt('author', preset.author)
     const license = await prompt('license', preset.license)
@@ -56,9 +56,12 @@ export default class Package implements IPackage {
     const { template, repository, ...props } = this
 
     setValue(pkg, `devDependencies.${template.name}`, template.tag)
-    pkg.repository = {
-      type: 'git',
-      url: repository,
+
+    if (repository) {
+      pkg.repository = {
+        type: 'git',
+        url: repository,
+      }
     }
 
     Object.assign(pkg, props)
