@@ -1,6 +1,7 @@
+import { sep, resolve } from 'path'
+import ora from 'ora'
 import unzip from '~/utils/unzip'
 import Package from '~/models/Package'
-import { sep, resolve } from 'path'
 import Template from '~/models/Template'
 import { remove } from 'fs-extra'
 
@@ -12,9 +13,13 @@ export default async function main(tpl: string, dest = cwd) {
     throw new Error('Template must be given.')
   }
 
+  const spinning = ora(`Downloading package...`).start()
+
   const template = await Template.create(tpl)
   await unzip(template.file, dest)
   await remove(template.path)
+
+  spinning.info('Configure The Package')
 
   const pkg = await Package.fromStdin(template, {
     name: pkgNameOf(dest),
@@ -24,4 +29,6 @@ export default async function main(tpl: string, dest = cwd) {
 
   const pkgPath = resolve(dest, 'package.json')
   await pkg.writeTo(pkgPath)
+
+  spinning.succeed('Done!')
 }
