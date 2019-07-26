@@ -1,4 +1,4 @@
-# tacer
+# tacer [![CircleCI](https://circleci.com/gh/IdanLoo/tacer.svg?style=svg)](https://circleci.com/gh/IdanLoo/tacer)
 
 A easier way to create a Javascript project. You can create a project template and reuse it.
 
