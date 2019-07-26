@@ -19,7 +19,7 @@ export default async function main(tpl: string, dest = cwd) {
   await unzip(template.file, dest)
   await remove(template.path)
 
-  spinning.info('Configure The Package')
+  spinning.info('Configure it')
 
   const pkg = await Package.fromStdin(template, {
     name: pkgNameOf(dest),
