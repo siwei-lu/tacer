@@ -2,7 +2,6 @@
 
 A easier way to create a Javascript project. You can create a project template and reuse it.
 
-
 ## How to use
 
 ### Install globally
@@ -11,57 +10,42 @@ A easier way to create a Javascript project. You can create a project template a
 npm install -g tacer
 ```
 
-### Create and Use
+### Via npx
 
 ```sh
-# make the current directory to a tacer template named react
-tacer add react
-# create a new project using the react template
-tacer react /path/to/project
+npx tacer react path/to/project
 ```
 
-## Template
+### Usage
 
-Tacer supports two types of templates.
-
-### .tpl
-
-A file which named ends by .tpl will be parsed as ES6 template strings. So you can use `${...}` in this file.
-
-```javascript
-// package.json.tpl
-{
-    "name": "${name}",
-    "version": "${version}
-}
+```sh
+tacer <template> [path]
 ```
 
-The `${name}` will be replaced with the project name, and the `${version}` will be replaced the project version, and the filename `package.json.tpl` will be replaced with `package.json`.
+- template: `required`
 
-### .ejs
+  There are some out-of-box templates now.
 
-A file which named ends by .ejs will be parsed as ejs template. You can refer to [the tutorial](https://ejs.co) for more information.
+  - [react](https://github.com/IdanLoo/tacer-template-react): React + TypeScript + Jest + styled-components
+  - [koa](https://github.com/IdanLoo/tacer-template-koa): Koa + TypeScript + Jest
+  - [lib](https://github.com/IdanLoo/tacer-template-lib): A library template for published to npmjs
+  - [bin](https://github.com/IdanLoo/tacer-template-bin): A binary template
 
-```javascript
-// package.json.ejs
-{
-    "name": "<%= name %>",
-    "version": "<%= version %>"
-}
-```
+- path: `optional`
 
-### Params
+  default: `process.cwd()`
 
-Tacer provided some paramters to the template.
-
-- name: `string`
-- description: `string`
-- repository: `string`
-- author: `string`
-- license: `string`
-- version: `string`
+  The path of the new project located.
 
 ## Release
+
+### v0.5.1
+
+#### Feats:
+
+- bootstrap itself.
+
+- rewrite almost every things, make it dependent from templates.
 
 ### v0.3.3
 
@@ -109,7 +93,7 @@ Tacer provided some paramters to the template.
 - multi-template support
 - node template
 
-#### Chores: 
+#### Chores:
 
 - export some functions
 - use rollup for bundling instead of webpack
