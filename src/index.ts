@@ -1,1 +1,1 @@
-export { default } from '~/utils/run'
+export { default } from '~/command'

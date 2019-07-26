@@ -12,7 +12,7 @@ program
 
 program.arguments('<template> [path]').action(main)
 
-export default function run() {
+export default function command() {
   program.parse(process.argv)
 
   if (program.args.length === 0) {
