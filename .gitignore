@@ -1,5 +1,5 @@
 .DS_Store
-node_modules/
-dist/
-types/
 *.log
+dist/
+node_modules/
+types/

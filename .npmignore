@@ -1,4 +1,6 @@
 node_modules/
-test/
+__tests__/
 src/
-*.lock
+.circleci/
+*.log
+.DS_Store
