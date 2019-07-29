@@ -1,19 +1,30 @@
-# tacer
+# tacer [![CircleCI](https://circleci.com/gh/IdanLoo/tacer.svg?style=svg)](https://circleci.com/gh/IdanLoo/tacer)
 
-A easier way to create a Javascript project. You can create a project template and reuse it.
+Create your own template and hide all bundling details.
 
-## How to use
+## Intro
+
+'Tacer' means 'to be silent' in Interlingua. What `tacer` does is making bundling process silent or invisible.
+
+If you've used `create-react-app`, you must be suprised by its bundling process. You don't need install `babel`, `webpack` or `rollup` mannually. The only thing you should do you run `npm start`
+
+Now, use `tacer` to create your own scaffold. All the bundling configures should be written once and used anywhere. Your project folder becomes simple and clear if `webpack.config.js`, `rollup.config.js` or `jest.config.js` are not in the folder.
+
+## How To Use
 
 ### Install globally
 
 ```sh
 npm install -g tacer
+tacer react path/to/project
+tacer https://github.com/IdanLoo/tacer-template-react path/to/project
 ```
 
 ### Via npx
 
 ```sh
 npx tacer react path/to/project
+npx tacer https://github.com/IdanLoo/tacer-template-react path/to/project
 ```
 
 ### Usage
@@ -22,7 +33,9 @@ npx tacer react path/to/project
 tacer <template> [path]
 ```
 
-- template: `required`
+- template: `required`, a package name or a git repository url.
+
+  `tacer` always assume template is named with prefix `tacer-template-`, so it tries to download `tacer-template-react` if a `react` given.
 
   There are some out-of-box templates now.
 
@@ -37,75 +50,46 @@ tacer <template> [path]
 
   The path of the new project located.
 
-## Release
+## How To Create Template
 
-### v0.5.1
+Althought I have provided some templates, they may not satisfy you. If you'd like to create one, go ahead.
 
-#### Feats:
+Let's say we are going to create a template for Electron.
 
-- bootstrap itself.
+### Seed
 
-- rewrite almost every things, make it dependent from templates.
+The template of templates is alse a template whick called `tacer-template-seed`. So you can create like this
 
-### v0.3.3
+```sh
+tacer seed /path/to/tacer-template-electron
+```
 
-#### Fixes:
+Your will see a folder on the given path.
 
-- uncompress error
+NOTICE: `tacer` always assume the package is named with prefix `tacer-template-`. So if you want to create an Electron template, you need name it as `tacer-template-electron`.
 
-### v0.3.1
+### Template
 
-#### Chores:
+Create a folder named `template` in `/path/to/tacer-template-electron` and put some things (`package.json`, `index.js`, `.gitignore`, etc.) into it. You can just copy an existing project and rename as `template`.
 
-- update readme
+### Handle Bundling
 
-- rewrite copyDir function
+You may notice there is a `scripts` folder in `/path/to/tacer-template-electron`. Each script in this folder exports one function which can be called by tacer-script.
 
-### v0.3.0
+Add `"start": "tacer-script start"` and `"build": "tacer-script build"` scripts into `template/package.json`. You can add other commands as you like which provided in the `scripts` folder.
 
-#### Feats:
+See more details in above templates.
 
-- rewrite by Typescript
+### Validate
 
-- add user template
+How could we know if the template works? Add a devDependency to the template.
 
-### v0.2.0
+```sh
+npm install --save-dev file:..
+// or
+yarn add -D file:..
+```
 
-#### Feats:
-
-- wx-component template
-
-#### Fixes:
-
-- `--version` bug
-
-### v0.1.1
-
-#### Fixes:
-
-- Cannot find module '@babel/runtime/regenerator'
-
-### v0.1.0
-
-#### Feats:
-
-- default value for inputing
-- multi-template support
-- node template
-
-#### Chores:
-
-- export some functions
-- use rollup for bundling instead of webpack
-
-### v0.0.2
-
-#### Feats:
-
-- create project with template
-
-#### Fixes:
-
-- error usage doc
+So that you can try `npm start`, `npm build` or other commands provided in the `tacer-template-electron`
 
 ## Have Fun!
