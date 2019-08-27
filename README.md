@@ -36,6 +36,7 @@ tacer <template> [path]
   default: `process.cwd()`
 
   The path of the new project located.
+  o
 
 ## Release
 
