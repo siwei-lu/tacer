@@ -45,7 +45,7 @@ tacer <template> [path]
 
 - bootstrap itself.
 
-- rewrite almost every things, make it dependent from templates.
+* ff rewrite almost every things, make it dependent from templates.
 
 ### v0.3.3
 
