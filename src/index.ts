@@ -1,1 +1,3 @@
-export { default } from '~/utils/run'
+import main from './main'
+
+main()
